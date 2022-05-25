@@ -3,6 +3,7 @@ public class Map{
   boolean pause=false;
   ArrayList<Station> lots;
   ArrayList<Soup> soups;
+  ArrayList<Ingredients> auto;
   
   public Map(){
     
