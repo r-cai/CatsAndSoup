@@ -1,12 +1,16 @@
 public class Soup{
   Ingredients[] stuff;
   float rating;
-  public Soup(int size){
+  public Soup(){
+    stuff=new Ingredients[m.auto.size()];
     rating=0;
+    for(int i=0;i<stuff.length;i++){
+      stuff[i]=m.auto.remove(i);
+    }
     for (Ingredients i : stuff){
       rating+=i.rating;
     }
-    stuff=new Ingredients[size];
+    
   }
   
   

@@ -22,5 +22,6 @@ void draw(){
   if(m.time>30){
     background(74,129,87);  
   }  
+  m.drawShop();
 
 }

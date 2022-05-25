@@ -7,8 +7,8 @@ public class soupStation extends Station{
      efficiency --;
     }
     if(efficiency==0){
-      Soup now=new Soup;
-      m.auto.add(now);
+      Soup now=new Soup();
+      m.soups.add(now);
     }
   }
 }
