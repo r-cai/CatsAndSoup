@@ -1,5 +1,5 @@
 public class soupStation extends Station{
-  soupStation(){
-    super("Soup");
+  public soupStation(){
+   super("Soup");
   }
 }

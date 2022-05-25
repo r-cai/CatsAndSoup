@@ -6,11 +6,11 @@ void setup(){
   m=new Map();
   
 }  
-void keyPressed(){
+/*void keyPressed(){
   if (key==' '){
     m.pause=!m.pause;
   }
-}
+}*/
 void draw(){
   if(m.pause==true)
     {
@@ -20,7 +20,7 @@ void draw(){
     background(152,190,100);
   }  
   if(m.time>30){
-    background(74,129,87);
+    background(74,129,87);  
   }  
 
 }

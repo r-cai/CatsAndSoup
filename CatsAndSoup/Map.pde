@@ -1,13 +1,14 @@
 public class Map{
-  float time=second();
+  float time;
   boolean pause=false;
   ArrayList<Station> lots;
   ArrayList<Soup> soups;
   
-  Map(){
+  public Map(){
+    
     currency=0;
     lots=new ArrayList<Station>();
-    soupStation main=new soupStation();
+    soupStation main=new soupStation();    
     lots.add(main);
   }
   void drawShop(){
