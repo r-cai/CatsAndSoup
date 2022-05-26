@@ -6,9 +6,9 @@ public class Station {
   public Station(int xpos, int ypos, String skill){
     x=xpos;
     y=ypos;
-    if(skill.equals("")){
-      type=null;
-    }
+    //if(skill.equals("")){
+      //type=null;
+    //}
     type=skill;
     if(skill.equals("Carrot")){
       efficiency+=60*4;
@@ -25,10 +25,19 @@ public class Station {
     if(efficiency > 0){
      efficiency --;
     }
+    
+    
+    
     if(efficiency==0){
       Ingredients now=new Ingredients(type);
       m.auto.add(now);
+      efficiency+=60*4;
     }
+    
+    if(efficiency%5==0){
+      
+    }
+    
   }
   
   
