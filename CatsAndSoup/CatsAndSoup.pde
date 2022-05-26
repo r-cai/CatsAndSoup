@@ -4,7 +4,7 @@ static int currency=0;
 boolean shop=false;
 
 void setup(){
-  size(540,840);
+  size(500,800);
   m=new Map();
   
 }  
@@ -13,8 +13,12 @@ void setup(){
     m.pause=!m.pause;
   }
 }*/
+void keyPressed(){
+  if(key=='s'){
+    shop=!shop;
+  }
+}
 void draw(){
-  m.drawLots();
   if(m.pause==true)
     {
       triangle(width/3, height/3,width/3,2*height/3,2*width/3,height/2);
@@ -27,6 +31,11 @@ void draw(){
     background(74,129,87);  
     col=color(74,129,87);
   }  
+  fill(255);
+  textSize(16);
+  text(""+currency+" Gold",20,20);
+  m.drawLots();
+  m.drawTable();
   if(shop){
     m.drawShop();
   }
