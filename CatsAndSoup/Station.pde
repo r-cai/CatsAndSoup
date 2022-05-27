@@ -15,10 +15,13 @@ public class Station {
     type=skill;
     if(skill.equals("Carrot")){
       efficiency+=60*4;
+      progress= efficiency//240;
     }
     if(skill.equals("Soup")){
       efficiency+=10*60;
+      progress= efficiency//600;
     }
+    
   }
   public Station(int xpos, int ypos, String skill){
     x=xpos;
@@ -69,8 +72,12 @@ public class Station {
     }
     
   }
-  
-  
+  void showProg(){
+  stroke(col-10);
+  fill(245, 243, 198,180);
+  rect(x+20,y+20,500/3-40,20);
+  text("
+  }  
   
   
   
