@@ -2,6 +2,7 @@ public class Station {
   float x, y;
   int efficiency;
   String type;
+  int wait;
   float progress;
   public Station(int place, String skill){
     if(place==1){x=0;y=40;}
@@ -14,12 +15,14 @@ public class Station {
     if(place==8){x=2*500/3;y=(2*660/3)+40;}
     type=skill;
     if(skill.equals("Carrot")){
-      efficiency+=60*4;
-      progress= efficiency//240;
+      wait=4;
+      efficiency+=60*wait;
+      progress=(int)(efficiency/240);
     }
     if(skill.equals("Soup")){
-      efficiency+=10*60;
-      progress= efficiency//600;
+      wait=10;
+      efficiency+=60*wait;
+      progress=(int)(efficiency/600);
     }
     
   }
@@ -59,25 +62,35 @@ public class Station {
      efficiency --;
     }
     
-    
-    
     if(efficiency==0&&m.pause==false){
       Ingredients now=new Ingredients(type);
       m.auto.add(now);
       efficiency+=60*4;
     }
     
-    if(efficiency%5==0){
-      
-    }
-    
   }
   void showProg(){
-  stroke(col-10);
-  fill(245, 243, 198,180);
-  rect(x+20,y+20,500/3-40,20);
-  text("
-  }  
+    Station check=new Station(1,"");
+    for(int i=0;i<9;i++){
+      
+      if (mouseX>m.lots[i].x&&mouseX<m.lots[i].x+500/3
+        &&mouseY>m.lots[i].y&&mouseY<m.lots[i].y+(700-40)/3
+      ){
+        check=m.lots[i];
+        i+=9;
+      }
+      
+    }
+    if(check.type!=""){
+      stroke(col-10);
+      fill(245, 243, 198);
+      ellipse(check.x+40,check.y+45,10,10);
+      ellipse(check.x+50,check.y+55,5,5);
+      rect(check.x+20,check.y+20,500/3-40,20,5);
+      fill(50);
+      text(""+progress+" out of "+wait,x+30,y+20,500/3-40,20);
+    }
+  }
   
   
   

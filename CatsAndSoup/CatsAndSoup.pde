@@ -7,6 +7,7 @@ void setup(){
   size(500,800);
   m=new Map();
   m.addStation(2,"Carrot");
+  m.addStation(6,"Carrot");
   
 }  
 /*void keyPressed(){
@@ -36,5 +37,5 @@ void draw(){
   if(shop){
     m.drawShop();
   }
-
+  
 }
