@@ -8,7 +8,7 @@ void setup(){
   m=new Map();
   m.addStation(2,"Carrot");
   m.addStation(6,"Carrot");
-  
+  m.lots[3].Sassign("Cabbage");
 }  
 /*void keyPressed(){
   if (key==' '){

@@ -1,6 +1,6 @@
 public class soupStation extends Station{
   public soupStation(){
-   super(500/3,(660/3)+40,"Soup");
+   super(0,"Soup");
   }
   void drawStation(){
     if(efficiency > 0){
@@ -9,6 +9,11 @@ public class soupStation extends Station{
     if(efficiency==0){
       Soup now=new Soup();
       m.soups.add(now);
+    }
+    if(efficiency==0&&m.pause==false){
+      Soup now=new Soup();
+      m.soups.add(now);
+      efficiency+=60*wait;
     }
     fill(200);
     stroke(200);
@@ -31,6 +36,8 @@ public class soupStation extends Station{
     circle(x+500/6-5,y+30+660/6-20,7);
     circle(x+500/6+10,y+30+660/6-25,8);
     arc(x+500/6-3,y+30+660/6+10,10,10,PI,PI+PI,OPEN);
-    
+    if(type!=""){
+        showProg();
+      }
   }
 }

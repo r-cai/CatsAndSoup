@@ -5,6 +5,7 @@ public class Station {
   int wait;
   float progress;
   public Station(int place, String skill){
+    if(place==0){x=500/3;y=(660/3)+40;}
     if(place==1){x=0;y=40;}
     if(place==2){x=0;y=(660/3)+40;}
     if(place==3){x=0;y=(2*660/3)+40;}
@@ -16,38 +17,49 @@ public class Station {
     type=skill;
     if(skill.equals("Carrot")){
       wait=4;
-      efficiency+=60*wait;
-      progress=(int)(efficiency/240);
     }
     if(skill.equals("Soup")){
       wait=10;
-      efficiency+=60*wait;
-      progress=(int)(efficiency/600);
     }
-    
+    if(skill.equals("Cabbage")){
+      wait=6;
+    }
+    efficiency+=60*wait;
+    if(type!=""){
+      progress=(int)(efficiency/(60*wait));
+    }
   }
-  public Station(int xpos, int ypos, String skill){
-    x=xpos;
-    y=ypos;
-    //if(skill.equals("")){
-      //type=null;
-    //}
+  
+  String Sassign(String skill){
+    if(skill=="Soup"){
+      return null;
+    }
     type=skill;
     if(skill.equals("Carrot")){
-      efficiency+=60*4;
+      wait=4;
     }
-    if(skill.equals("Soup")){
-      efficiency+=10*60;
+    if(skill.equals("Cabbage")){
+      wait=6;
     }
-  }
-  String Sassign(String skill){
-    type=skill;
+    efficiency+=60*wait;
+    if(type!=""){
+      progress=(int)(efficiency/(60*wait));
+    }
     return type;
   }
   void drawStation(){
-    color cat=color(239,179,97);
+    color cat=0;
+    String face="";
+    if(type=="Carrot"){
+      cat=color(239,179,97);
+      face="= o . <  =";
+    }
+    if(type=="Cabbage"){
+      cat=color(165,113,78);
+      face="= ~ n ~  =";
+    }
     if(type!=""){
-      fill(cat);
+      fill(cat); 
       stroke(cat);
       triangle(x+30,y+660/6+5-30,x+40,y+660/6-30-20,x+55,y+660/6-30);
       triangle(x+90,y+660/6+5-30,x+80,y+660/6-30-20,x+65,y+660/6-30);
@@ -56,7 +68,7 @@ public class Station {
       fill(255);
       rect(x+41,y+660/6,40,50,10);
       fill(0);
-      text("= o . <  =", x+21,y+660/6-10);
+      text(face, x+21,y+660/6-10);
     }
     if(efficiency > 0&&m.pause==false){
      efficiency --;
@@ -65,31 +77,28 @@ public class Station {
     if(efficiency==0&&m.pause==false){
       Ingredients now=new Ingredients(type);
       m.auto.add(now);
-      efficiency+=60*4;
+      efficiency=60*wait;
     }
-    
+    if(type!=""){
+        showProg();
+      }
   }
   void showProg(){
-    Station check=new Station(1,"");
-    for(int i=0;i<9;i++){
-      
-      if (mouseX>m.lots[i].x&&mouseX<m.lots[i].x+500/3
-        &&mouseY>m.lots[i].y&&mouseY<m.lots[i].y+(700-40)/3
+    
+      if (mouseX>x&&mouseX<x+500/3
+        &&mouseY>y&&mouseY<y+(700-40)/3
       ){
-        check=m.lots[i];
-        i+=9;
+        if(type!=""){
+          stroke(col-10);
+          fill(245, 243, 198,200);
+          ellipse(x+40,y+45,10,10);
+          ellipse(x+50,y+55,5,5);
+          rect(x+20,y+20,500/3-40,20,5);
+          fill(50);
+          text(""+progress+" out of "+wait,x+30,y+20,500/3-40,20);
+        }
       }
-      
-    }
-    if(check.type!=""){
-      stroke(col-10);
-      fill(245, 243, 198);
-      ellipse(check.x+40,check.y+45,10,10);
-      ellipse(check.x+50,check.y+55,5,5);
-      rect(check.x+20,check.y+20,500/3-40,20,5);
-      fill(50);
-      text(""+progress+" out of "+wait,x+30,y+20,500/3-40,20);
-    }
+    
   }
   
   

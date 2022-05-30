@@ -22,9 +22,6 @@ public class Map{
       stroke(col-100);
       ellipse(i.x+500/6,i.y+(700-40)/6,500/3,(700-40)/3);
       i.drawStation();
-      if(i.type!=""){
-        i.showProg();
-      }
     }
   }
   void addStation(int pos, String type){
