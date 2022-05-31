@@ -23,6 +23,7 @@ public class Map{
       ellipse(i.x+500/6,i.y+(700-40)/6,500/3,(700-40)/3);
       i.drawStation();
     }
+    
   }
   void addStation(int pos, String type){
     lots[pos]=new Station(pos, type);
@@ -39,6 +40,9 @@ public class Map{
     fill(129,84,56);
     stroke(100, 38, 14);
     rect(0,790,500,10);
+    for(int i=0;i<soups.size();i++){
+      soups.get(i).drawSoup((500/5)*i,710);
+    }
   }
 
 }

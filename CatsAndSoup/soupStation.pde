@@ -3,17 +3,19 @@ public class soupStation extends Station{
    super(0,"Soup");
   }
   void drawStation(){
-    if(efficiency > 0){
-     efficiency --;
+    
+    if(!m.pause){
+      progress=(second()-time);
+      if(second()<time){
+        progress=(60-time)+second();
+      }
     }
-    if(efficiency==0){
-      Soup now=new Soup();
-      m.soups.add(now);
-    }
-    if(efficiency==0&&m.pause==false){
-      Soup now=new Soup();
-      m.soups.add(now);
-      efficiency+=60*wait;
+    if(progress>wait && m.pause==false){
+      time=second();
+      if(m.soups.size()<6){
+        Soup now=new Soup();
+        m.soups.add(now);
+      }
     }
     fill(200);
     stroke(200);
@@ -37,7 +39,14 @@ public class soupStation extends Station{
     circle(x+500/6+10,y+30+660/6-25,8);
     arc(x+500/6-3,y+30+660/6+10,10,10,PI,PI+PI,OPEN);
     if(type!=""){
-        showProg();
+        stroke(col-10);
+        fill(245, 243, 198,200);
+        ellipse(x+40,y+45,10,10);
+        ellipse(x+50,y+55,5,5);
+        rect(x+20,y+20,500/3-40,20,5);
+        fill(50);
+        
+        text(""+progress+" out of "+wait,x+30,y+20,500/3-40,20);
       }
   }
 }

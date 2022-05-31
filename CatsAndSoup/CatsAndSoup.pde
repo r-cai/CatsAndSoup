@@ -10,21 +10,17 @@ void setup(){
   m.addStation(6,"Carrot");
   m.lots[3].Sassign("Cabbage");
 }  
-/*void keyPressed(){
-  if (key==' '){
-    m.pause=!m.pause;
-  }
-}*/
+
 void keyPressed(){
   if(key=='s'){
     shop=!shop;
   }
+  if (key==' '){
+    m.pause=!m.pause;
+  }
 }
 void draw(){
-  if(m.pause==true)
-    {
-      triangle(width/3, height/3,width/3,2*height/3,2*width/3,height/2);
-    }
+  
     background(152,190,100);
     col=color(152,190,100);
     m.drawLots();
@@ -37,5 +33,9 @@ void draw(){
   if(shop){
     m.drawShop();
   }
-  
+  if(m.pause){
+    stroke(255);
+    fill(255,150);
+    triangle(width/3, height/3,width/3,2*height/3,2*width/3,height/2);
+  }
 }
