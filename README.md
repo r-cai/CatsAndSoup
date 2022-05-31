@@ -1,2 +1,27 @@
 # CatsAndSoup
-final project
+5/18
+repo created.
+
+5/24 (prototype handed in, coding begins)
+files created.
+draw main tab
+Ingredients extends Soup
+Map
+Soup
+Station
+SoupStation extends Station
+tentative instance variables initialized. Station no longer extends Map due to recursive error when Map makes a new soupstation
+
+5/25 
+drawshop written, drawlot written, drawtable written. drawlot and drawtable currently only draw empty lot/table. added example timers from Mr. K's demo
+
+5/26
+still developing graphical features. position of station to be initialized in x,y depending on which lot. successfully merged drawStation into drawLot. finished graphical design of cats. 
+
+5/27
+More development of timers. working on a feature that shows the progress of the timer when mouse hovers over it. working on showProg for each station. 
+
+log 5/30
+fixed timers on stations & soupstation. currently using second() instead of countdown. soup successfully added when soupstation timer is up. graphical additions to 'Carrot' and 'Cabbage' stations. 
+BUGS
+Ingredients not added when station timer is up.
