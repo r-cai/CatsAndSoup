@@ -3,10 +3,10 @@ public class Ingredients{
   float rating;
   public Ingredients(String t){
     type=t;
-    if(t.equals("Carrots")){
+    if(type.equals("Carrots")){
       rating=0.15;
     }
-    if(t.equals("Cabbage")){
+    if(type.equals("Cabbage")){
       rating=0.2;
     }
   }

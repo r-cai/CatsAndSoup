@@ -39,6 +39,9 @@ public class Map{
     fill(129,84,56);
     stroke(100, 38, 14);
     rect(0,790,500,10);
+    for(int i=0;i<soups.size();i++){
+      soups.get(i).drawSoup((500/5)*i,710);
+    }
   }
 
 }
