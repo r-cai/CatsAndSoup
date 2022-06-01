@@ -104,10 +104,10 @@ public class Map{
     }
   }
   boolean clickCa(){
-    return (mouseX>60&&mouseX<180&&mouseY>160&&mouseY<195);
+    return (mouseX>100&&mouseX<220&&mouseY>190&&mouseY<225);
   }
   boolean clickCb(){
-    return (mouseX>60&&mouseX<180&&mouseY>170&&mouseY<305);
+    return (mouseX>100&&mouseX<220&&mouseY>260&&mouseY<295);
   }
 
 }

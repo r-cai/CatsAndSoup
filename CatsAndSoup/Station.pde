@@ -50,7 +50,7 @@ public class Station {
     return type;
   }
   void drawStation(){
-    if(progress>wait && m.pause==false){
+    if(progress>=wait && m.pause==false){
       time=second();
       if(m.auto.size()<3){
         Ingredients now=new Ingredients(type);

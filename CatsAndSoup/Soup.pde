@@ -29,14 +29,20 @@ public class Soup{
     arc(x+40-3,y+30+10,10,10,PI,PI+PI,OPEN);*/
     fill(200);
     text(""+rating, x+30,y+65);
-    //for (Ingredients i:stuff){
-      //if(i==new Ingredients("Carrot")){
+    for (Ingredients i:stuff){
+      if(i==new Ingredients("Carrot")){
         fill(255,165,0);
         stroke(255,165,0);
         rect(x+40-15,y+30,9,8,5);
         rect(x+40+5,y+25,9,8,5);
-      //}
-    //}
+      }
+      else if(i==new Ingredients("Cabbage")){
+        fill(255,165,0);
+        stroke(255,165,0);
+        rect(x+40-15,y+30,9,8,5);
+        rect(x+40+5,y+25,9,8,5);
+      }
+    }
 
   }
   
