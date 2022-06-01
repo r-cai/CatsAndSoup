@@ -27,4 +27,7 @@ BUGS
 Ingredients not added when station timer is up.
 
 5/31
-pause button now suspends timers. clicking on soup removes soup and adds gold. ingredients are still not being added to the soup
+pause button now suspends timers. clicking on soup removes soup and adds gold. ingredients are still not being added to the soup. shop adds stations to map. 
+commit history deleted because of pull/push issue. I recloned the repo in order to resolve. 
+PRIORITY
+work on getting ingredient into soup
