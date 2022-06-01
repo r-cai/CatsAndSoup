@@ -20,13 +20,13 @@ void keyPressed(){
 }
 void draw(){
   background(152,190,100);
+  textSize(16);
   col=color(152,190,100);
   m.drawLots();
   m.drawTable();
   if(shop){
     m.drawShop();
   }
-
   if(m.pause){
     stroke(255);
     fill(255,150);

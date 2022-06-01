@@ -3,6 +3,10 @@ public class soupStation extends Station{
    super(0,"Soup");
   }
   void drawStation(){
+    if(m.pause){
+      time=second()-progress;
+      if(second()<progress){time=60-(progress-second());}
+    }
     if(!m.pause){
       progress=(second()-time);
       if(second()<time){

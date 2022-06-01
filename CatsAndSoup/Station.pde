@@ -3,7 +3,7 @@ public class Station {
   int time;
   String type;
   int wait;
-  float progress;
+  int progress;
   public Station(int place, String skill){
     time=second();
     if(place==0){x=500/3;y=(660/3)+40;}
@@ -50,11 +50,15 @@ public class Station {
     return type;
   }
   void drawStation(){
-        if(!m.pause){
-      progress=(second()-time);
+    if(!m.pause){
+      progress=second()-time;
       if(second()<time){
         progress=(60-time)+second();
       }
+    }
+    if(m.pause){
+      time=second()-progress;
+      if(second()<progress){time=60-(progress-second());}
     }
     if(progress>wait && m.pause==false){
       time=second();
