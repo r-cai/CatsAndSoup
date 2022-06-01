@@ -1,8 +1,9 @@
 public class Soup{
   Ingredients[] stuff;
   float rating;
+  int cost;
   public Soup(){
-    stuff=new Ingredients[2];
+    stuff=new Ingredients[m.auto.size()];
     rating=0.1;
     for(int i=0;i<stuff.length;i++){
       stuff[i]=m.auto.get(0);
@@ -11,6 +12,7 @@ public class Soup{
     for (Ingredients i : stuff){
       rating+=i.rating;
     }
+    cost=(int)(1000*rating);
     
   }
     void drawSoup(float x,float y){

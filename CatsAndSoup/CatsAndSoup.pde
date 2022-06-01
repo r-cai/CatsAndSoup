@@ -33,3 +33,10 @@ void draw(){
     triangle(width/3, height/3,width/3,2*height/3,2*width/3,height/2);
   }
 }
+void mouseClicked(){
+  if(m.go){
+    Soup s=m.soups.remove(m.rmv);
+    currency+=s.cost;
+    m.go=false;
+  }
+}

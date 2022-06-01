@@ -4,6 +4,8 @@ public class Map{
   Station[] lots;
   ArrayList<Soup> soups;
   ArrayList<Ingredients> auto;
+  boolean go;
+  int rmv;
   
   public Map(){
     time=second();
@@ -23,6 +25,8 @@ public class Map{
       ellipse(i.x+500/6,i.y+(700-40)/6,500/3,(700-40)/3);
       i.drawStation();
     }
+    fill(0);
+    text(""+currency+" GOLD", 10,20);
   }
   void addStation(int pos, String type){
     lots[pos]=new Station(pos, type);
@@ -39,8 +43,17 @@ public class Map{
     fill(129,84,56);
     stroke(100, 38, 14);
     rect(0,790,500,10);
+    update();
     for(int i=0;i<soups.size();i++){
       soups.get(i).drawSoup((500/5)*i,710);
+    }
+    
+  }
+  
+  void update(){
+    if(!m.pause&&mouseY>710&&mouseY<790){
+      rmv=mouseX/100;
+      go=true;
     }
   }
 

@@ -50,6 +50,13 @@ public class Station {
     return type;
   }
   void drawStation(){
+    if(progress>wait && m.pause==false){
+      time=second();
+      if(m.auto.size()<3){
+        Ingredients now=new Ingredients(type);
+        m.auto.add(now); 
+      }
+    }
     if(!m.pause){
       progress=second()-time;
       if(second()<time){
@@ -60,14 +67,7 @@ public class Station {
       time=second()-progress;
       if(second()<progress){time=60-(progress-second());}
     }
-    if(progress>wait && m.pause==false){
-      time=second();
-      if(m.auto.size()<3){
-        Ingredients now=new Ingredients(type);
-        m.auto.add(now);
-      }
-
-    }
+    
     if(type!=""){
       showProg();
     }
