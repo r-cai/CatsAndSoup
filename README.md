@@ -21,7 +21,10 @@ still developing graphical features. position of station to be initialized in x,
 5/27
 More development of timers. working on a feature that shows the progress of the timer when mouse hovers over it. working on showProg for each station. 
 
-log 5/30
+5/30
 fixed timers on stations & soupstation. currently using second() instead of countdown. soup successfully added when soupstation timer is up. graphical additions to 'Carrot' and 'Cabbage' stations. 
 BUGS
 Ingredients not added when station timer is up.
+
+5/31
+pause button now suspends timers. clicking on soup removes soup and adds gold. ingredients are still not being added to the soup
