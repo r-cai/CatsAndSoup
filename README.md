@@ -31,3 +31,6 @@ pause button now suspends timers. clicking on soup removes soup and adds gold. i
 commit history deleted because of pull/push issue. I recloned the repo in order to resolve. 
 PRIORITY
 work on getting ingredient into soup
+
+
+https://docs.google.com/document/d/1mKbR-0yig-3LIn1d80ZSnuD0NG98yGH9_4tj0BnBg28/edit?usp=sharing
