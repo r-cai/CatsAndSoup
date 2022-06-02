@@ -37,10 +37,10 @@ public class Station {
       return null;
     }
     type=skill;
-    if(skill.equals("Carrot")){
+    if(type=="Carrot"){
       wait=4;
     }
-    if(skill.equals("Cabbage")){
+    if(type=="Cabbage"){
       wait=6;
     }
     if(type==""){

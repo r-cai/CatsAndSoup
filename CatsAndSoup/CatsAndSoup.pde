@@ -22,6 +22,14 @@ void keyPressed(){
       m.lots[m.ad].Sassign(m.buy);
       if(m.buy=="Carrot"){currency-=300;}
       if(m.buy=="Cabbage"){currency-=400;}
+      shop=false;
+    }
+    if (m.lots[m.ad].type!=""&&m.del){
+      if(m.lots[m.ad].type=="Carrot"){currency+=300;}
+      if(m.lots[m.ad].type=="Cabbage"){currency+=400;}
+      m.lots[m.ad].Sassign("");
+      shop=false;
+      m.lots[m.ad].Sassign(m.buy);
     }
     m.add=false;
   }

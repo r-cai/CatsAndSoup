@@ -9,6 +9,7 @@ public class Map{
   boolean add=false;
   int ad=0;
   String buy;
+  boolean del;
   
   public Map(){
     time=second();
@@ -26,7 +27,7 @@ public class Map{
       fill(col+20);
       stroke(col-100);
       ellipse(i.x+500/6,i.y+(700-40)/6,500/3,(700-40)/3);
-      i.drawStation();
+      if(i.type!=""){i.drawStation();}
     }
     fill(0);
     text(""+currency+" GOLD", 10,20);
@@ -74,6 +75,8 @@ public class Map{
     arc(x+100,y+240,30,30,0,PI,OPEN);
     fill(50);
     text("400 GOLD",x+30,y+290);
+    //draw delete button
+    rect(400,400,40,20);
   }
   void drawTable(){
     fill(186,140,99);
@@ -94,6 +97,10 @@ public class Map{
       rmv=mouseX/100;
       go=true;
     }
+    if(shop&&clickdel()){
+      add=false;
+      del=true;
+    }
     if(shop&&clickCa()&&currency>=300){
       add=true;
       buy="Carrot";
@@ -102,6 +109,9 @@ public class Map{
       add=true;
       buy="Cabbage";
     }
+  }
+  boolean clickdel(){
+    return (mouseX>400&&mouseX<440&&mouseY>400&&mouseY<420);
   }
   boolean clickCa(){
     return (mouseX>100&&mouseX<220&&mouseY>190&&mouseY<225);
