@@ -41,7 +41,6 @@ public class soupStation extends Station{
     circle(x+500/6-5,y+30+660/6-20,7);
     circle(x+500/6+10,y+30+660/6-25,8);
     arc(x+500/6-3,y+30+660/6+10,10,10,PI,PI+PI,OPEN);
-    if(type!=""){
       stroke(col-10);
       fill(245, 243, 198,200);
       ellipse(x+40,y+45,10,10);
@@ -50,6 +49,5 @@ public class soupStation extends Station{
       fill(50);
 
       text(""+progress+" out of "+wait,x+30,y+20,500/3-40,20);
-    }
   }
 }

@@ -7,7 +7,7 @@ public class Map{
   boolean go;
   int rmv;
   boolean add=false;
-  int ad=0;
+  int ad=1;
   String buy;
   boolean del;
   
@@ -19,7 +19,7 @@ public class Map{
     auto=new ArrayList<Ingredients>();
     soupStation main=new soupStation(); lots[0]=main;
     for(int i=1;i<=8;i++){
-      lots[i]= new Station(i,"");
+      lots[i]= new Station(i," ");
     }
   }
   void drawLots(){
@@ -27,13 +27,22 @@ public class Map{
       fill(col+20);
       stroke(col-100);
       ellipse(i.x+500/6,i.y+(700-40)/6,500/3,(700-40)/3);
-      if(i.type!=""){i.drawStation();}
+      if(i.type!=" "){i.drawStation();}
     }
     fill(0);
     text(""+currency+" GOLD", 10,20);
   }
   void addStation(int pos, String type){
     lots[pos]=new Station(pos, type);
+  }
+  int lotSize(){
+    int sum=0;
+    for (int i=0;i<lots.length;i++){
+      if(lots[i].type!=" "){
+        sum++;
+      }
+    }
+    return sum;
   }
   void drawShop(){
     float x=80;
@@ -46,6 +55,7 @@ public class Map{
     text("SHOP (choose type, then press number lot)",100,60,width-200,80);
     text("LOT CHOSEN: "+ad,100,600);
     text("TYPE CHOSEN: "+buy,100,500);
+    
     //draw carrot button
     rect(x+20,y+120,120,35,5);
     fill(65,163,23);
@@ -57,7 +67,10 @@ public class Map{
     triangle(x+50,y+150,x+50,y+130,x+130,y+140);
     fill(50);
     textSize(16);
-    text("300 GOLD",x+30,y+180);
+    if(lotSize()>4){
+      text("550 GOLD",x+30,y+180);
+    }else{text("300 GOLD",x+30,y+180);}
+    
     //draw cabbage button
     fill(50);
     stroke(50);
@@ -74,7 +87,10 @@ public class Map{
     stroke(30);
     arc(x+100,y+240,30,30,0,PI,OPEN);
     fill(50);
-    text("400 GOLD",x+30,y+290);
+    if(lotSize()>4){
+      text("650 GOLD",x+30,y+290);
+    }else{text("400 GOLD",x+30,y+290);}
+    
     //draw delete button
     rect(400,400,40,20);
   }
@@ -93,7 +109,7 @@ public class Map{
   }
   
   void update(){
-    if(!m.pause&&m.soups.size()>0&&mouseY>710&&mouseY<790){
+    if((!m.pause)&&mouseY>710&&mouseY<790){
       rmv=mouseX/100;
       go=true;
     }
@@ -102,10 +118,12 @@ public class Map{
       del=true;
     }
     if(shop&&clickCa()&&currency>=300){
+      del=false;
       add=true;
       buy="Carrot";
     }
     else if(shop&&clickCb()&&currency>=400){
+      del=false;
       add=true;
       buy="Cabbage";
     }

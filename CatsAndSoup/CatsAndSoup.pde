@@ -5,8 +5,6 @@ boolean shop=false;
 void setup(){
   size(500,800);
   m=new Map();
-  m.lots[6].Sassign("Carrot");
-  m.lots[3].Sassign("Cabbage");
 }  
 
 void keyPressed(){
@@ -18,18 +16,19 @@ void keyPressed(){
   }
   if(shop&&key>'0'&&key<'9'){
     m.ad=key-48;
-    if(m.lots[m.ad].type==""&&m.add){
+    if(m.lots[m.ad].type==" "&&m.add||(m.lotSize()>4&&currency>=550)
+    ||(m.lotSize()>4&&currency>=650)){
       m.lots[m.ad].Sassign(m.buy);
       if(m.buy=="Carrot"){currency-=300;}
       if(m.buy=="Cabbage"){currency-=400;}
+      if(m.lotSize()>4){currency-=250;}
       shop=false;
     }
-    if (m.lots[m.ad].type!=""&&m.del){
-      if(m.lots[m.ad].type=="Carrot"){currency+=300;}
-      if(m.lots[m.ad].type=="Cabbage"){currency+=400;}
-      m.lots[m.ad].Sassign("");
+    if (m.lots[m.ad].type!=" "&&m.del){
+      if(m.lots[m.ad].type=="Carrot"){currency+=300-150;}
+      if(m.lots[m.ad].type=="Cabbage"){currency+=400-150;}
+      m.lots[m.ad].Sassign(" ");
       shop=false;
-      m.lots[m.ad].Sassign(m.buy);
     }
     m.add=false;
   }
@@ -50,9 +49,10 @@ void draw(){
   }
 }
 void mouseClicked(){
-  if(m.auto.size()>m.rmv&&m.go){
-    Soup s=m.soups.remove(m.rmv);
-    currency+=s.cost;
+  if(m.soups.size()>m.rmv&&mouseY>710&&mouseY<790){
+    currency+=m.soups.get(m.rmv).cost;
+    m.soups.remove(m.rmv);
+    
     m.go=false;
   }
   
