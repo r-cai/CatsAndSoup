@@ -27,6 +27,10 @@ public class Map{
       fill(col+20);
       stroke(col-100);
       ellipse(i.x+500/6,i.y+(700-40)/6,500/3,(700-40)/3);
+      fill(155,118,83,150);
+      stroke(155,118,83,150);
+      ellipse(i.x+500/6,i.y+40+(700-40)/6,130,80);
+      ellipse(i.x+500/6,i.y+40+(700-40)/6,100,40);
       if(i.type!=" "){i.drawStation();}
     }
     fill(0);
