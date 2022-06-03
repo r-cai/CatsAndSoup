@@ -9,6 +9,9 @@ public class Ingredients{
     if(type=="Cabbage"){
       rating=0.2;
     }
+    if(type=="Corn"){
+      rating=0.25;
+    }
   }
   
   

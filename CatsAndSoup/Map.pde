@@ -78,22 +78,31 @@ public class Map{
     //draw cabbage button
     fill(50);
     stroke(50);
-    rect(x+20,y+230,120,35,5);
+    rect(x+20,y+210+90,120,35,5);
+    fill(50);
+    if(lotSize()>4){
+      text("1250 GOLD",x+30,y+270+90);
+    }else{text("1000 GOLD",x+30,y+270+90);}
+    
+    //draw cabbage button
+    fill(50);
+    stroke(50);
+    rect(x+20,y+210,120,35,5);
     color c=color(75,173,33);
     fill(c);
     stroke(30);
-    ellipse(x+60,y+250,35,30);
+    ellipse(x+60,y+230,35,30);
     fill(c+30);stroke(70);
-    ellipse(x+60,y+250,15,15);
+    ellipse(x+60,y+230,15,15);
     fill(c+60);stroke(50);
-    ellipse(x+60,y+250,10,10);
+    ellipse(x+60,y+230,10,10);
     fill(c);
     stroke(30);
-    arc(x+100,y+240,30,30,0,PI,OPEN);
+    arc(x+100,y+220,30,30,0,PI,OPEN);
     fill(50);
     if(lotSize()>4){
-      text("650 GOLD",x+30,y+290);
-    }else{text("400 GOLD",x+30,y+290);}
+      text("650 GOLD",x+30,y+270);
+    }else{text("400 GOLD",x+30,y+270);}
     
     //draw delete button
     rect(400,400,40,20);
@@ -121,15 +130,20 @@ public class Map{
       add=false;
       del=true;
     }
-    if(shop&&clickCa()&&currency>=300){
+    if(shop&&clickCa()&&(currency>=300||(m.lotSize()>4&&currency>=550))){
       del=false;
       add=true;
       buy="Carrot";
     }
-    else if(shop&&clickCb()&&currency>=400){
+    else if(shop&&clickCb()&&(currency>=400||(m.lotSize()>4&&currency>=650))){
       del=false;
       add=true;
       buy="Cabbage";
+    }
+    else if(shop&&clickCo()&&currency>=1000){
+      del=false;
+      add=true;
+      buy="Corn";
     }
   }
   boolean clickdel(){
@@ -139,7 +153,10 @@ public class Map{
     return (mouseX>100&&mouseX<220&&mouseY>190&&mouseY<225);
   }
   boolean clickCb(){
-    return (mouseX>100&&mouseX<220&&mouseY>260&&mouseY<295);
+    return (mouseX>100&&mouseX<220&&mouseY>240&&mouseY<275);
+  }
+  boolean clickCo(){
+    return (mouseX>100&&mouseX<220&&mouseY>290&&mouseY<325);
   }
 
 }

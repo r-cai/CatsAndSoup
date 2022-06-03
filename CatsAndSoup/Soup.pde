@@ -30,13 +30,13 @@ public class Soup{
     fill(200);
     text(""+rating, x+30,y+65);
     for (Ingredients i:stuff){
-      if(i==new Ingredients("Carrot")){
+      if(i.type==("Carrot")){
         fill(255,165,0);
         stroke(255,165,0);
         rect(x+40-15,y+30,9,8,5);
         rect(x+40+5,y+25,9,8,5);
       }
-      else if(i==new Ingredients("Cabbage")){
+      else if(i.type==("Cabbage")){
         fill(255,165,0);
         stroke(255,165,0);
         rect(x+40-15,y+30,9,8,5);

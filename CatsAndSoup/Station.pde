@@ -25,6 +25,9 @@ public class Station {
     if(skill.equals("Cabbage")){
       wait=6;
     }
+    if(skill.equals("Corn")){
+      wait=7;
+    }
     if(type==" "){
       wait=0;  
     }
@@ -42,6 +45,9 @@ public class Station {
     }
     if(type=="Cabbage"){
       wait=6;
+    }
+    if(skill.equals("Corn")){
+      wait=7;
     }
     if(type==" "){
       wait=0;
@@ -75,6 +81,10 @@ public class Station {
         if(type=="Carrot"){
           cat=color(239,179,97);
           face="= o . <  =";
+        }
+        if(type=="Corn"){
+          cat=color(233,187,111);
+          face="= q w q =";
         }
         if(type=="Cabbage"){
           cat=color(165,113,78);

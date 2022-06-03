@@ -5,6 +5,7 @@ boolean shop=false;
 void setup(){
   size(500,800);
   m=new Map();
+  m.lots[1].Sassign("Corn");
 }  
 
 void keyPressed(){
@@ -16,12 +17,12 @@ void keyPressed(){
   }
   if(shop&&key>'0'&&key<'9'){
     m.ad=key-48;
-    if(m.lots[m.ad].type==" "&&m.add||(m.lotSize()>4&&currency>=550)
-    ||(m.lotSize()>4&&currency>=650)){
-      m.lots[m.ad].Sassign(m.buy);
+    if(m.lots[m.ad].type==" "&&m.add){
       if(m.buy=="Carrot"){currency-=300;}
       if(m.buy=="Cabbage"){currency-=400;}
+      if(m.buy=="Cabbage"){currency-=400;}
       if(m.lotSize()>4){currency-=250;}
+      m.lots[m.ad].Sassign(m.buy);
       shop=false;
     }
     if (m.lots[m.ad].type!=" "&&m.del){
