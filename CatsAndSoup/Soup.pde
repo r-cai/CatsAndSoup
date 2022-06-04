@@ -34,13 +34,19 @@ public class Soup{
         fill(255,165,0);
         stroke(255,165,0);
         rect(x+40-15,y+30,9,8,5);
-        rect(x+40+5,y+25,9,8,5);
+        rect(x+40+7,y+27,9,8,5);
       }
       else if(i.type==("Cabbage")){
-        fill(255,165,0);
-        stroke(255,165,0);
-        rect(x+40-15,y+30,9,8,5);
+        fill(193,222,153);
+        stroke(159,204,96);
+        rect(x+35,y+18,9,8,5);
         rect(x+40+5,y+25,9,8,5);
+      }
+      else if(i.type==("Corn")){
+        fill(225,219,88);
+        stroke(232,163,23);
+        rect(x+47,y+20,10,8,5);
+        rect(x+30,y+35,10,8,5); 
       }
     }
 

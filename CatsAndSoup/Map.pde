@@ -75,10 +75,21 @@ public class Map{
       text("550 GOLD",x+30,y+180);
     }else{text("300 GOLD",x+30,y+180);}
     
-    //draw cabbage button
+    //draw corn button
     fill(50);
     stroke(50);
     rect(x+20,y+210+90,120,35,5);
+    fill(50);
+    fill(249,225,118);
+    stroke(249,225,118);
+    rect(x+25,y+310,70,15,20);
+    fill(246,201,21);
+    stroke(246,201,21);
+    rect(x+30,y+305,50,25,20);
+    stroke(249,229,188);
+    ellipse(x+120,y+320,10,5);ellipse(x+127,y+325,10,5);
+    ellipse(x+110,y+325,10,5);ellipse(x+115,y+315,10,5);
+    ellipse(x+130,y+320,10,5);ellipse(x+130,y+315,10,5);
     fill(50);
     if(lotSize()>4){
       text("1250 GOLD",x+30,y+270+90);
@@ -140,7 +151,7 @@ public class Map{
       add=true;
       buy="Cabbage";
     }
-    else if(shop&&clickCo()&&currency>=1000){
+    else if(shop&&clickCo()&&(currency>=1000||(m.lotSize()>4&&currency>=1250))){
       del=false;
       add=true;
       buy="Corn";
@@ -153,10 +164,10 @@ public class Map{
     return (mouseX>100&&mouseX<220&&mouseY>190&&mouseY<225);
   }
   boolean clickCb(){
-    return (mouseX>100&&mouseX<220&&mouseY>240&&mouseY<275);
+    return (mouseX>100&&mouseX<220&&mouseY>280&&mouseY<315);
   }
   boolean clickCo(){
-    return (mouseX>100&&mouseX<220&&mouseY>290&&mouseY<325);
+    return (mouseX>100&&mouseX<220&&mouseY>370&&mouseY<405);
   }
 
 }

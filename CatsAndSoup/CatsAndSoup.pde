@@ -20,7 +20,7 @@ void keyPressed(){
     if(m.lots[m.ad].type==" "&&m.add){
       if(m.buy=="Carrot"){currency-=300;}
       if(m.buy=="Cabbage"){currency-=400;}
-      if(m.buy=="Cabbage"){currency-=400;}
+      if(m.buy=="Corn"){currency-=1000;}
       if(m.lotSize()>4){currency-=250;}
       m.lots[m.ad].Sassign(m.buy);
       shop=false;
@@ -28,6 +28,7 @@ void keyPressed(){
     if (m.lots[m.ad].type!=" "&&m.del){
       if(m.lots[m.ad].type=="Carrot"){currency+=300-150;}
       if(m.lots[m.ad].type=="Cabbage"){currency+=400-150;}
+      if(m.lots[m.ad].type=="Corn"){currency+=500;}
       m.lots[m.ad].Sassign(" ");
       shop=false;
     }
