@@ -38,4 +38,7 @@ remove button added, still buggy
 6/2
 remove button works. cost of adding soupstation scales up when there are 4 stations in lot. 
 
+6/3
+added corn type station, scaled currency.
+
 https://docs.google.com/document/d/1mKbR-0yig-3LIn1d80ZSnuD0NG98yGH9_4tj0BnBg28/edit?usp=sharing
