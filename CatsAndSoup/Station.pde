@@ -33,6 +33,35 @@ public class Station {
     }
     progress=0;
   }
+  public Station(float startx,float starty,int place, String skill){
+    time=second();
+    if(place==0){x=startx+500/3;y=starty+(660/3)+40;}
+    if(place==1){x=startx+0;y=starty+starty+40;}
+    if(place==2){x=startx+0;y=starty+(660/3)+40;}
+    if(place==3){x=startx+0;y=starty+(2*660/3)+40;}
+    if(place==4){x=startx+500/3;y=starty+40;}
+    if(place==5){x=startx+500/3;y=starty+(2*660/3)+40;}
+    if(place==6){x=startx+2*500/3;y=starty+40;}
+    if(place==7){x=startx+2*500/3;y=starty+(660/3)+40;}
+    if(place==8){x=startx+2*500/3;y=starty+(2*660/3)+40;}
+    type=skill;
+    if(skill.equals("Carrot")){
+      wait=4;
+    }
+    if(skill.equals("Soup")){
+      wait=10;
+    }
+    if(skill.equals("Cabbage")){
+      wait=6;
+    }
+    if(skill.equals("Corn")){
+      wait=7;
+    }
+    if(type==" "){
+      wait=0;  
+    }
+    progress=0;
+  }
   
   String Sassign(String skill){
     time=second();

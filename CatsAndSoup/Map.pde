@@ -10,8 +10,22 @@ public class Map{
   int ad=1;
   String buy;
   boolean del;
-  
+  float x;
+  float y;
+  public Map(float startX,float startY){
+    x=startX;y=startY;
+    time=second();
+    currency=0;
+    lots=new Station[9];
+    soups=new ArrayList<Soup>();
+    auto=new ArrayList<Ingredients>();
+    soupStation main=new soupStation(); lots[0]=main;
+    for(int i=1;i<=8;i++){
+      lots[i]= new Station(startX,startY,i," ");
+    }
+  }
   public Map(){
+    x=0;y=0;
     time=second();
     currency=0;
     lots=new Station[9];

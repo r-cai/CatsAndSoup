@@ -1,11 +1,18 @@
+ArrayList<Map> total=new ArrayList<Map>();
+int expand=0;
 Map m;
 color col;
+
 static int currency=0;
 boolean shop=false;
 void setup(){
   size(500,800);
   m=new Map();
+  total.add(m);
   m.lots[1].Sassign("Corn");
+  if(expand>0){
+    size(500*expand,800);
+  }
 }  
 
 void keyPressed(){
@@ -39,8 +46,11 @@ void draw(){
   background(152,190,100);
   textSize(16);
   col=color(152,190,100);
-  m.drawLots();
-  m.drawTable();
+  addMap();
+  for(int i=0;i<=expand;i++){
+    m.drawLots();
+    m.drawTable();
+  }
   if(m.pause){
     stroke(255);
     fill(255,150);
@@ -49,6 +59,12 @@ void draw(){
   if(shop){
     m.drawShop();
   }
+}
+void addMap(){
+  expand++;
+  m=new Map(500*expand,0);
+  total.add(m);
+  
 }
 void mouseClicked(){
   if(m.soups.size()>m.rmv&&mouseY>710&&mouseY<790){
