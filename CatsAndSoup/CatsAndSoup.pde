@@ -2,20 +2,34 @@ ArrayList<Map> total=new ArrayList<Map>();
 int expand=0;
 Map m;
 color col;
-
+boolean buyb=false;
 static int currency=0;
 boolean shop=false;
+
 void setup(){
   size(500,800);
-  m=new Map();
+  m=new Map(0,0);
   total.add(m);
-  m.lots[1].Sassign("Corn");
-  if(expand>0){
-    size(500*expand,800);
-  }
+  m=total.get(expand);
+  
 }  
 
 void keyPressed(){
+  if(key==CODED){
+    if(keyCode==LEFT&&expand!=0&&!buyb){
+      expand--;
+    }
+    if(keyCode==LEFT&&buyb){
+      expand=total.size()-1;
+      buyb=false;
+    }
+    if(keyCode==RIGHT){
+      if(expand==total.size()-1){
+        buyb=true;
+      }
+      else{expand++;}
+    }
+  }
   if(key=='s'){
     shop=!shop;
   }
@@ -46,11 +60,10 @@ void draw(){
   background(152,190,100);
   textSize(16);
   col=color(152,190,100);
-  addMap();
-  for(int i=0;i<=expand;i++){
-    m.drawLots();
-    m.drawTable();
-  }
+  m=total.get(expand);
+  m.drawLots();
+  m.drawTable();
+  
   if(m.pause){
     stroke(255);
     fill(255,150);
@@ -59,11 +72,14 @@ void draw(){
   if(shop){
     m.drawShop();
   }
+  if(buyb){drawbuy();}
+  
 }
 void addMap(){
   expand++;
-  m=new Map(500*expand,0);
+  m=new Map(0,0);
   total.add(m);
+  m=total.get(expand);
   
 }
 void mouseClicked(){
@@ -72,6 +88,31 @@ void mouseClicked(){
     m.soups.remove(m.rmv);
     
     m.go=false;
+  }
+  if(buyb&&mouseX>width/4&&mouseY>height*.5-50
+  &&mouseX<3*width/4&&mouseY<height*.5
+  &&currency>=10000){
+    addMap();
+    currency-=10000;
+  }
+  
+}
+void drawbuy(){
+  background(152,190,100);
+  fill(255);
+  stroke(50);
+  if(mouseX>width/4&&mouseY>height*.5-50
+  &&mouseX<3*width/4&&mouseY<height*.5){fill(200);}
+  rect(width/4,height*.5-50,width/2,50,20);
+  fill(50);
+  text("BUY MAP EXPANSION",width/4+30,height*.5-30);
+  text("10000 GOLD",width/4+30,height*.5-10);
+  if(currency<10000){
+    fill(255,0,0);
+    textSize(40);
+    text("YOU'RE TOO POOR RIGHT NOW GO BACK :(",0,40,width,height);
+    fill(0);
+    textSize(14);
   }
   
 }

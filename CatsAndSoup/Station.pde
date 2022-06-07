@@ -17,16 +17,16 @@ public class Station {
     if(place==8){x=2*500/3;y=(2*660/3)+40;}
     type=skill;
     if(skill.equals("Carrot")){
-      wait=4;
-    }
-    if(skill.equals("Soup")){
-      wait=10;
-    }
-    if(skill.equals("Cabbage")){
       wait=6;
     }
-    if(skill.equals("Corn")){
+    if(skill.equals("Soup")){
+      wait=15;
+    }
+    if(skill.equals("Cabbage")){
       wait=7;
+    }
+    if(skill.equals("Corn")){
+      wait=8;
     }
     if(type==" "){
       wait=0;  
@@ -46,16 +46,16 @@ public class Station {
     if(place==8){x=startx+2*500/3;y=starty+(2*660/3)+40;}
     type=skill;
     if(skill.equals("Carrot")){
-      wait=4;
-    }
-    if(skill.equals("Soup")){
-      wait=10;
-    }
-    if(skill.equals("Cabbage")){
       wait=6;
     }
-    if(skill.equals("Corn")){
+    if(skill.equals("Soup")){
+      wait=15;
+    }
+    if(skill.equals("Cabbage")){
       wait=7;
+    }
+    if(skill.equals("Corn")){
+      wait=8;
     }
     if(type==" "){
       wait=0;  
@@ -70,13 +70,13 @@ public class Station {
     }
     type=skill;
     if(type=="Carrot"){
-      wait=4;
-    }
-    if(type=="Cabbage"){
       wait=6;
     }
-    if(skill.equals("Corn")){
+    if(type=="Cabbage"){
       wait=7;
+    }
+    if(skill.equals("Corn")){
+      wait=8;
     }
     if(type==" "){
       wait=0;

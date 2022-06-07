@@ -15,7 +15,6 @@ public class Map{
   public Map(float startX,float startY){
     x=startX;y=startY;
     time=second();
-    currency=0;
     lots=new Station[9];
     soups=new ArrayList<Soup>();
     auto=new ArrayList<Ingredients>();
@@ -27,7 +26,6 @@ public class Map{
   public Map(){
     x=0;y=0;
     time=second();
-    currency=0;
     lots=new Station[9];
     soups=new ArrayList<Soup>();
     auto=new ArrayList<Ingredients>();
@@ -37,6 +35,7 @@ public class Map{
     }
   }
   void drawLots(){
+    
     for(Station i : lots){
       fill(col+20);
       stroke(col-100);
@@ -49,6 +48,7 @@ public class Map{
     }
     fill(0);
     text(""+currency+" GOLD", 10,20);
+    text("MAP "+expand,300,20);
   }
   void addStation(int pos, String type){
     lots[pos]=new Station(pos, type);
@@ -131,6 +131,8 @@ public class Map{
     
     //draw delete button
     rect(400,400,40,20);
+    fill(255);
+    text("DEL",400,415);
   }
   void drawTable(){
     fill(186,140,99);
