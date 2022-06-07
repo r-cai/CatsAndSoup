@@ -3,8 +3,9 @@ int expand=0;
 Map m;
 color col;
 boolean buyb=false;
-static int currency=0;
-boolean shop=false;
+static int currency=20000;
+static int deco=0;
+
 
 void setup(){
   size(500,800);
@@ -29,14 +30,20 @@ void keyPressed(){
       }
       else{expand++;}
     }
+    if(m.shop&&keyCode==DOWN&&m.dShop<2){
+      m.dShop++;
+    }
+    if(m.shop&&keyCode==UP&&m.dShop>0){
+      m.dShop--;
+    }
   }
   if(key=='s'){
-    shop=!shop;
+    m.shop=!m.shop;
   }
   if (key==' '){
     m.pause=!m.pause;
   }
-  if(shop&&key>'0'&&key<'9'){
+  if(m.shop&&key>'0'&&key<'9'){
     m.ad=key-48;
     if(m.lots[m.ad].type==" "&&m.add){
       if(m.buy=="Carrot"){currency-=300;}
@@ -44,14 +51,14 @@ void keyPressed(){
       if(m.buy=="Corn"){currency-=1000;}
       if(m.lotSize()>4){currency-=250;}
       m.lots[m.ad].Sassign(m.buy);
-      shop=false;
+      m.shop=false;
     }
     if (m.lots[m.ad].type!=" "&&m.del){
       if(m.lots[m.ad].type=="Carrot"){currency+=300-150;}
       if(m.lots[m.ad].type=="Cabbage"){currency+=400-150;}
       if(m.lots[m.ad].type=="Corn"){currency+=500;}
       m.lots[m.ad].Sassign(" ");
-      shop=false;
+      m.shop=false;
     }
     m.add=false;
   }
@@ -69,7 +76,7 @@ void draw(){
     fill(255,150);
     triangle(width/3, height/3,width/3,2*height/3,2*width/3,height/2);
   }
-  if(shop){
+  if(m.shop){
     m.drawShop();
   }
   if(buyb){drawbuy();}
@@ -95,6 +102,12 @@ void mouseClicked(){
     addMap();
     currency-=10000;
   }
+  if(!m.shop&&mouseX>0&&mouseX<50&&mouseY>20&&mouseY<35){
+    m.convertC();
+  }
+  if(m.shop&&m.dShop>0){
+    
+  }
   
 }
 void drawbuy(){
@@ -110,9 +123,12 @@ void drawbuy(){
   if(currency<10000){
     fill(255,0,0);
     textSize(40);
-    text("YOU'RE TOO POOR RIGHT NOW GO BACK :(",0,40,width,height);
     fill(0);
     textSize(14);
+    if(mouseX>width/4&&mouseY>height*.5-50
+    &&mouseX<3*width/4&&mouseY<height*.5){
+      text("YOU'RE TOO POOR RIGHT NOW GO BACK :(",0,40,width,height);
+    }
   }
   
 }

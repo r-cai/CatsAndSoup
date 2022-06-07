@@ -4,6 +4,7 @@ public class Map{
   Station[] lots;
   ArrayList<Soup> soups;
   ArrayList<Ingredients> auto;
+  ArrayList<Deco> dec;
   boolean go;
   int rmv;
   boolean add=false;
@@ -12,12 +13,16 @@ public class Map{
   boolean del;
   float x;
   float y;
+  boolean shop=false;
+  int dShop=0;
+  String decoT;
   public Map(float startX,float startY){
     x=startX;y=startY;
     time=second();
     lots=new Station[9];
     soups=new ArrayList<Soup>();
     auto=new ArrayList<Ingredients>();
+    dec=new ArrayList<Deco>();
     soupStation main=new soupStation(); lots[0]=main;
     for(int i=1;i<=8;i++){
       lots[i]= new Station(startX,startY,i," ");
@@ -48,10 +53,14 @@ public class Map{
     }
     fill(0);
     text(""+currency+" GOLD", 10,20);
+    text(""+deco+" DECCOINS", 10,35);
     text("MAP "+expand,300,20);
   }
   void addStation(int pos, String type){
     lots[pos]=new Station(pos, type);
+  }
+  void convertC(){
+    if(currency>=500){currency-=500;deco++;}
   }
   int lotSize(){
     int sum=0;
@@ -63,17 +72,30 @@ public class Map{
     return sum;
   }
   void drawShop(){
+    fill(0);text(""+dShop,100,70);
     float x=80;
     float y=70;
     stroke(245, 243, 198,180);
     fill(245, 243, 198,180);
     rect(40, 40, width-80,height-80,20);
+    if(dShop==1){drawDeco();}
+    if(dShop==2){drawFits();}
+    //extraShop
+    if(dShop==0){basicShop(x,y);}
+  }
+  void drawFits(){
+    
+  }
+  void drawDeco(){
+    fill(50); rect(100,100,50,20,10);
+    fill(255);text("Flower",100,110);
+  }
+  void basicShop(float x, float y){
     fill(50);
     textSize(22);
     text("SHOP (choose type, then press number lot)",100,60,width-200,80);
     text("LOT CHOSEN: "+ad,100,600);
     text("TYPE CHOSEN: "+buy,100,500);
-    
     //draw carrot button
     rect(x+20,y+120,120,35,5);
     fill(65,163,23);
