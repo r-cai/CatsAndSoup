@@ -41,4 +41,7 @@ remove button works. cost of adding soupstation scales up when there are 4 stati
 6/3
 added corn type station, scaled currency.
 
+6/6
+added map expansions, with buy screen. arrow keys to scroll betweeen maps.
+
 https://docs.google.com/document/d/1mKbR-0yig-3LIn1d80ZSnuD0NG98yGH9_4tj0BnBg28/edit?usp=sharing
