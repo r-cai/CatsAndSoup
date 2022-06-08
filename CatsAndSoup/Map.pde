@@ -15,7 +15,8 @@ public class Map{
   float y;
   boolean shop=false;
   int dShop=0;
-  String decoT;
+  String place;
+  boolean plDec;
   public Map(float startX,float startY){
     x=startX;y=startY;
     time=second();
@@ -50,6 +51,9 @@ public class Map{
       ellipse(i.x+500/6,i.y+40+(700-40)/6,130,80);
       ellipse(i.x+500/6,i.y+40+(700-40)/6,100,40);
       if(i.type!=" "){i.drawStation();}
+    }
+    for(Deco x :dec){
+      x.drawDec();
     }
     fill(0);
     text(""+currency+" GOLD", 10,20);
@@ -207,5 +211,7 @@ public class Map{
   boolean clickCo(){
     return (mouseX>100&&mouseX<220&&mouseY>370&&mouseY<405);
   }
-
+  boolean clickFlower(){
+    return (mouseX>100&&mouseY>100&&mouseX<150&&mouseY<20);
+  }
 }

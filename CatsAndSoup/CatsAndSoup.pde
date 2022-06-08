@@ -80,7 +80,6 @@ void draw(){
     m.drawShop();
   }
   if(buyb){drawbuy();}
-  
 }
 void addMap(){
   expand++;
@@ -105,8 +104,16 @@ void mouseClicked(){
   if(!m.shop&&mouseX>0&&mouseX<50&&mouseY>20&&mouseY<35){
     m.convertC();
   }
-  if(m.shop&&m.dShop>0){
+  if(m.dShop==1){
+    if(m.clickFlower()){
+      m.place="Flower";
+      m.plDec=true;
+      m.shop=false;
+    }
     
+  }
+  if(m.plDec&&validClick()){
+    m.dec.add(new Deco(mouseX,mouseY,m.place));
   }
   
 }
@@ -131,4 +138,7 @@ void drawbuy(){
     }
   }
   
+}
+boolean validClick(){
+  return (mouseY<700&&mouseY>40);
 }
