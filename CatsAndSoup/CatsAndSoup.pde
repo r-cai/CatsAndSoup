@@ -104,11 +104,12 @@ void mouseClicked(){
   if(!m.shop&&mouseX>0&&mouseX<50&&mouseY>20&&mouseY<35){
     m.convertC();
   }
-  if(m.dShop==1){
+  if(m.dShop==1&&m.shop){
     if(m.clickFlower()){
       m.place="Flower";
       m.plDec=true;
       m.shop=false;
+      m.dShop=0;
     }
     
   }

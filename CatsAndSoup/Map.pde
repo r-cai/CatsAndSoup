@@ -83,12 +83,8 @@ public class Map{
     fill(245, 243, 198,180);
     rect(40, 40, width-80,height-80,20);
     if(dShop==1){drawDeco();}
-    if(dShop==2){drawFits();}
     //extraShop
     if(dShop==0){basicShop(x,y);}
-  }
-  void drawFits(){
-    
   }
   void drawDeco(){
     fill(50); rect(100,100,50,20,10);
