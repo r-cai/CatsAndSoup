@@ -15,7 +15,6 @@ public class Map{
   float y;
   boolean shop=false;
   int dShop=0;
-  boolean drawD=false;
   boolean placeD=false;
   String decoT;
   public Map(float startX,float startY){

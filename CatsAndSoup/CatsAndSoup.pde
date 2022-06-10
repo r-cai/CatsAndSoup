@@ -72,7 +72,8 @@ void draw(){
   m.drawLots();
   m.drawTable();
   for (Deco j:m.dec){
-    j.drawDeco();
+    if(j.drawD){j.drawDeco();}
+    else{j.floatDeco();}
   }
   if(m.pause){
     stroke(255);
@@ -120,30 +121,35 @@ void mouseClicked(){
       m.shop=false;
       m.placeD=true;
       d=new Deco("Flower");
+      d.drawD=false;
       deco-=2;
     }
     if(m.clickLan()&&deco>=2){
       m.shop=false;
       m.placeD=true;
       d=new Deco("Mushroom");
+      d.drawD=false;
       deco-=2;
     }
     if(m.clickFr()&&deco>=3){
       m.shop=false;
       m.placeD=true;
       d=new Deco("Frog");
+      d.drawD=false;
       deco-=3;
     }
     if(m.clickSq()&&deco>=3){
       m.shop=false;
       m.placeD=true;
       d=new Deco("Squirrel");
+      d.drawD=false;
       deco-=3;
     }
     if(m.clickBr()&&deco>=3){
       m.shop=false;
       m.placeD=true;
       d=new Deco("Bird");
+      d.drawD=false;
       deco-=3;
     }
   }
