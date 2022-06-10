@@ -5,6 +5,7 @@ color col;
 boolean buyb=false;
 static int currency=20000;
 static int deco=0;
+Deco d;
 
 
 void setup(){
@@ -30,7 +31,7 @@ void keyPressed(){
       }
       else{expand++;}
     }
-    if(m.shop&&keyCode==DOWN&&m.dShop<2){
+    if(m.shop&&keyCode==DOWN&&m.dShop<1){
       m.dShop++;
     }
     if(m.shop&&keyCode==UP&&m.dShop>0){
@@ -70,7 +71,9 @@ void draw(){
   m=total.get(expand);
   m.drawLots();
   m.drawTable();
-  
+  for (Deco j:m.dec){
+    j.drawDeco();
+  }
   if(m.pause){
     stroke(255);
     fill(255,150);
@@ -81,6 +84,7 @@ void draw(){
   }
   if(buyb){drawbuy();}
   
+  text(""+m.placeD,200,20);
 }
 void addMap(){
   expand++;
@@ -93,7 +97,6 @@ void mouseClicked(){
   if(m.soups.size()>m.rmv&&mouseY>710&&mouseY<790){
     currency+=m.soups.get(m.rmv).cost;
     m.soups.remove(m.rmv);
-    
     m.go=false;
   }
   if(buyb&&mouseX>width/4&&mouseY>height*.5-50
@@ -102,12 +105,49 @@ void mouseClicked(){
     addMap();
     currency-=10000;
   }
-  if(!m.shop&&mouseX>0&&mouseX<50&&mouseY>20&&mouseY<35){
+  if(mouseX>0&&mouseX<50&&mouseY>20&&mouseY<35){
     m.convertC();
   }
-  if(m.shop&&m.dShop>0){
-    
+  if(m.placeD&&clickValid()){
+    m.dec.add(d);
+    d.drawD=true;
+    d.x=mouseX;
+    d.y=mouseY;
+    m.placeD=false;
   }
+  if(m.shop&&m.dShop==1){
+    if(m.clickFl()&&deco>=2){
+      m.shop=false;
+      m.placeD=true;
+      d=new Deco("Flower");
+      deco-=2;
+    }
+    if(m.clickLan()&&deco>=2){
+      m.shop=false;
+      m.placeD=true;
+      d=new Deco("Mushroom");
+      deco-=2;
+    }
+    if(m.clickFr()&&deco>=3){
+      m.shop=false;
+      m.placeD=true;
+      d=new Deco("Frog");
+      deco-=3;
+    }
+    if(m.clickSq()&&deco>=3){
+      m.shop=false;
+      m.placeD=true;
+      d=new Deco("Squirrel");
+      deco-=3;
+    }
+    if(m.clickBr()&&deco>=3){
+      m.shop=false;
+      m.placeD=true;
+      d=new Deco("Bird");
+      deco-=3;
+    }
+  }
+  
   
 }
 void drawbuy(){
@@ -131,4 +171,7 @@ void drawbuy(){
     }
   }
   
+}  
+boolean clickValid(){
+  return (mouseY>40&&mouseY<710);
 }

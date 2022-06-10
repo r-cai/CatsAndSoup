@@ -15,6 +15,8 @@ public class Map{
   float y;
   boolean shop=false;
   int dShop=0;
+  boolean drawD=false;
+  boolean placeD=false;
   String decoT;
   public Map(float startX,float startY){
     x=startX;y=startY;
@@ -27,6 +29,7 @@ public class Map{
     for(int i=1;i<=8;i++){
       lots[i]= new Station(startX,startY,i," ");
     }
+    
   }
   public Map(){
     x=0;y=0;
@@ -53,7 +56,7 @@ public class Map{
     }
     fill(0);
     text(""+currency+" GOLD", 10,20);
-    text(""+deco+" DECCOINS", 10,35);
+    text(""+deco+" DECCOINS (1000 GOLD)", 10,35);
     text("MAP "+expand,300,20);
   }
   void addStation(int pos, String type){
@@ -79,16 +82,49 @@ public class Map{
     fill(245, 243, 198,180);
     rect(40, 40, width-80,height-80,20);
     if(dShop==1){drawDeco();}
-    if(dShop==2){drawFits();}
     //extraShop
     if(dShop==0){basicShop(x,y);}
   }
-  void drawFits(){
-    
-  }
   void drawDeco(){
-    fill(50); rect(100,100,50,20,10);
-    fill(255);text("Flower",100,110);
+    //flower button;
+    fill(50); 
+    rect(100,100,130,40,10);
+    fill(255);
+    text("Flower",120,125);
+    fill(0);
+    text("2 DECCOINS",250,125);
+    
+    //lantern button;
+    fill(50); 
+    rect(100,150,130,40,10);
+    fill(255);
+    text("Mushroom",120,175);
+    fill(0);
+    text("2 DECCOINS",250,175);
+    
+    //frog button;
+    fill(50); 
+    rect(100,200,130,40,10);
+    fill(255);
+    text("Frog",120,225);
+    fill(0);
+    text("3 DECCOINS",250,225);
+    
+    //Sq button;
+    fill(50); 
+    rect(100,250,130,40,10);
+    fill(255);
+    text("Squirrel",120,275);
+    fill(0);
+    text("3 DECCOINS",250,275);
+    
+    //bird button;
+    fill(50); 
+    rect(100,300,130,40,10);
+    fill(255);
+    text("Bird",120,325);
+    fill(0);
+    text("3 DECCOINS",220,325);
   }
   void basicShop(float x, float y){
     fill(50);
@@ -206,6 +242,21 @@ public class Map{
   }
   boolean clickCo(){
     return (mouseX>100&&mouseX<220&&mouseY>370&&mouseY<405);
+  }
+  boolean clickFl(){
+    return (mouseX>100&&mouseY>100&&mouseX<230&&mouseY<140);
+  }
+  boolean clickLan(){
+    return (mouseX>100&&mouseY>150&&mouseX<230&&mouseY<190);
+  }
+  boolean clickFr(){
+    return (mouseX>100&&mouseY>200&&mouseX<230&&mouseY<240);
+  }
+  boolean clickSq(){
+    return (mouseX>100&&mouseY>250&&mouseX<230&&mouseY<290);
+  }
+  boolean clickBr(){
+    return (mouseX>100&&mouseY>300&&mouseX<230&&mouseY<340);
   }
 
 }
