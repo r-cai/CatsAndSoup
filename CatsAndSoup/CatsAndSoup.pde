@@ -5,8 +5,8 @@ color col;
 boolean buyb=false;
 static int currency=20000;
 static int deco=0;
-Deco d;
-
+Deco d=new Deco(mouseX,mouseY,"Flower");
+PImage img;
 
 void setup(){
   size(500,800);
@@ -73,7 +73,7 @@ void draw(){
   m.drawTable();
   for (Deco j:m.dec){
     if(j.drawD){j.drawDeco();}
-    else{j.floatDeco();}
+    else if(m.placeD){j.floatDeco();}
   }
   if(m.pause){
     stroke(255);
@@ -84,8 +84,7 @@ void draw(){
     m.drawShop();
   }
   if(buyb){drawbuy();}
-  
-  text(""+m.placeD,200,20);
+  text(""+d.drawD,200,20);
 }
 void addMap(){
   expand++;
@@ -110,7 +109,7 @@ void mouseClicked(){
     m.convertC();
   }
   if(m.placeD&&clickValid()){
-    m.dec.add(d);
+    
     d.drawD=true;
     d.x=mouseX;
     d.y=mouseY;
@@ -152,6 +151,7 @@ void mouseClicked(){
       d.drawD=false;
       deco-=3;
     }
+    m.dec.add(d);
   }
   
   

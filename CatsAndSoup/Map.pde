@@ -123,7 +123,7 @@ public class Map{
     fill(255);
     text("Bird",120,325);
     fill(0);
-    text("3 DECCOINS",220,325);
+    text("3 DECCOINS",250,325);
   }
   void basicShop(float x, float y){
     fill(50);
