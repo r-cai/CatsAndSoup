@@ -20,16 +20,12 @@ public class soupStation extends Station{
         m.soups.add(now);
       }
     }
-    fill(200);
-    stroke(200);
-    triangle(x+30,y+660/6+5-30,x+40,y+660/6-30-20,x+55,y+660/6-30);
-    triangle(x+90,y+660/6+5-30,x+80,y+660/6-30-20,x+65,y+660/6-30);
-    rect(x+30,y+660/6-30,60,80,5);
-    fill(255);
-    rect(x+41,y+660/6,40,50,10);
+    lg=loadImage("log.png");
+      image(lg,x+5,y+120,500/3-10,110);
+    PImage kat=loadImage(type+".png");
+    image(kat,x+10,y+25,120,150);
     fill(0);
-    text("= ^ w ^ =", x+21,y+660/6-10);
-    stroke(col-10);
+    stroke(0);
     rect(x+500/6-35,y+30+660/6,70,40,5,5,20,20);
     fill(237,215,164);
     stroke(0);

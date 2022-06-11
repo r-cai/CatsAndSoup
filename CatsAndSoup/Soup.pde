@@ -28,7 +28,7 @@ public class Soup{
     circle(x+40+10,y+30-25,8);
     arc(x+40-3,y+30+10,10,10,PI,PI+PI,OPEN);*/
     fill(200);
-    text(""+rating, x+30,y+65);
+    text(""+rating, x+20,y+65);
     for (Ingredients i:stuff){
       if(i.type==("Carrot")){
         fill(255,165,0);

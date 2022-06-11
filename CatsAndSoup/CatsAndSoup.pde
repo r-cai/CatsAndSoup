@@ -7,6 +7,7 @@ static int currency=20000;
 static int deco=0;
 Deco d=new Deco(mouseX,mouseY,"Flower");
 PImage img;
+PImage lg;
 
 void setup(){
   size(500,800);
@@ -38,7 +39,7 @@ void keyPressed(){
       m.dShop--;
     }
   }
-  if(key=='s'){
+  if(key=='s'||key=='S'){
     m.shop=!m.shop;
   }
   if (key==' '){
@@ -65,9 +66,12 @@ void keyPressed(){
   }
 }
 void draw(){
-  background(152,190,100);
+  if(second()<=30){PImage day=loadImage("bgday.jpg");
+    image(day,0,0);col=color(152,190,100);}
+  else{PImage nt=loadImage("bgnight.jpg");
+    image(nt,0,0);col=color(103,146,103);}
   textSize(16);
-  col=color(152,190,100);
+  
   m=total.get(expand);
   m.drawLots();
   m.drawTable();
@@ -84,7 +88,6 @@ void draw(){
     m.drawShop();
   }
   if(buyb){drawbuy();}
-  text(""+d.drawD,200,20);
 }
 void addMap(){
   expand++;

@@ -12,24 +12,12 @@ public class Deco{
   }
   void drawDeco(){
     img=loadImage(type+".png");
-    if(type=="Flower"||type=="Mushroom"){
-      image(img, x-20,y-20,40,40);
-    }
-    if(type=="Frog"
-    ||type=="Bird"||type=="Squirrel"){
-      image(img, x-30,y-30,60,60);
-    }
+    image(img, x-30,y-30,60,60);
     
   }
   void floatDeco(){
-    PImage img=loadImage(type+".png");
-    if(type=="Flower"||type=="Mushroom"){
-      image(img, mouseX-20,mouseY-20,40,40);
-    }
-    if(type=="Frog"
-    ||type=="Bird"||type=="Squirrel"){
-      image(img, mouseX-30,mouseY-30,60,60);
-    }
+    img=loadImage(type+".png");
+    image(img, mouseX-30,mouseY-30,60,60);
     
   }
 

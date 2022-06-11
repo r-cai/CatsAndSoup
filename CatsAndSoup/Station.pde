@@ -104,65 +104,23 @@ public class Station {
         if(second()<progress){time=60-(progress-second());}
       }
       
-        showProg();
-        color cat=0;
-        String face="";
-        if(type=="Carrot"){
-          cat=color(239,179,97);
-          face="= o . <  =";
-        }
-        if(type=="Corn"){
-          cat=color(255,239,172);
-          face="= 0 m 0 =";
-        }
-        if(type=="Cabbage"){
-          cat=color(165,113,78);
-          face="= ~ n ~  =";
-        }
-        fill(cat); 
-        stroke(cat);
-        rect(x+30,y+660/6-30,60,80,5);
-        
-        if(type=="Corn"){fill(231,212,144);ellipse(x+60,y+660/6-10,50,30);}
-        triangle(x+30,y+660/6+5-30,x+40,y+660/6-30-20,x+55,y+660/6-30);
-        triangle(x+90,y+660/6+5-30,x+80,y+660/6-30-20,x+65,y+660/6-30);
-        fill(255);
-        rect(x+41,y+660/6,40,50,10);
-        fill(0);
-        text(face, x+21,y+660/6-10);
+      showProg();
+      lg=loadImage("log.png");
+      image(lg,x+5,y+120,500/3-10,110);
+      PImage kat=loadImage(type+".png");
+      image(kat,x+10,y+25,120,150);
+      
+      if(type=="Corn"){
+        PImage tp=loadImage("i"+type+".png");
+        image(tp,x+10,y+130,150,80);
+      }
       if(type=="Carrot"){
-        fill(65,163,23);
-        stroke(0);
-        triangle(x+30,y+165,x+60,y+180,x+30,y+175);
-        triangle(x+25,y+190,x+60,y+180,x+30,y+180);
-        fill(255,165,0);
-        stroke(205,105,0);
-        triangle(x+50,y+190,x+50,y+170,x+130,y+180);
+        PImage tp=loadImage("i"+type+".png");
+        image(tp,x+10,y+130,150,80);
       }
       if(type=="Cabbage"){
-        color c=color(75,173,33);
-        fill(c);
-        stroke(30);
-        ellipse(x+50,y+170,60,60);
-        fill(c+30);stroke(70);
-        ellipse(x+50,y+170,45,45);
-        fill(c+60);stroke(50);
-        ellipse(x+50,y+170,20,20);
-        fill(c);
-        stroke(30);
-        arc(x+110,y+150,50,40,0,PI,OPEN);
-      }
-      if(type=="Corn"){
-        fill(249,225,118);
-        stroke(249,225,118);
-        rect(x+20,y+150,80,20,20);
-        fill(246,201,21);
-        stroke(246,201,21);
-        rect(x+25,y+140,60,40,20);
-        stroke(249,229,188);
-        ellipse(x+120,y+160,10,5);ellipse(x+127,y+165,10,5);
-        ellipse(x+110,y+165,10,5);ellipse(x+115,y+155,10,5);
-        ellipse(x+130,y+160,10,5);ellipse(x+130,y+155,10,5);
+        PImage tp=loadImage("i"+type+".png");
+        image(tp,x+10,y+130,150,80);
       }
     }
   }

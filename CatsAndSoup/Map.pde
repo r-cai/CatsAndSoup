@@ -44,18 +44,19 @@ public class Map{
   void drawLots(){
     
     for(Station i : lots){
-      fill(col+20);
-      stroke(col-100);
+      fill (col+20);
+      stroke(col+20);
       ellipse(i.x+500/6,i.y+(700-40)/6,500/3,(700-40)/3);
-      fill(155,118,83,150);
-      stroke(155,118,83,150);
-      ellipse(i.x+500/6,i.y+40+(700-40)/6,130,80);
-      ellipse(i.x+500/6,i.y+40+(700-40)/6,100,40);
+      
       if(i.type!=" "){i.drawStation();}
     }
     fill(0);
-    text(""+currency+" GOLD", 10,20);
-    text(""+deco+" DECCOINS (1000 GOLD)", 10,35);
+    PImage gl=loadImage("gold.png");
+    PImage dc=loadImage("deccoin.png");
+    image(gl,0,5,20,20);
+    image(dc,0,20,20,20);
+    text(""+currency+" GOLD", 20,20);
+    text(""+deco+" (500 GOLD)", 20,35);
     text("MAP "+expand,300,20);
   }
   void addStation(int pos, String type){
@@ -132,14 +133,9 @@ public class Map{
     text("LOT CHOSEN: "+ad,100,600);
     text("TYPE CHOSEN: "+buy,100,500);
     //draw carrot button
-    rect(x+20,y+120,120,35,5);
-    fill(65,163,23);
-    stroke(0);
-    triangle(x+30,y+125,x+60,y+140,x+30,y+135);
-    triangle(x+25,y+150,x+60,y+140,x+30,y+140);
-    fill(255,165,0);
-    stroke(205,105,0);
-    triangle(x+50,y+150,x+50,y+130,x+130,y+140);
+    rect(x+20,y+100,120,55,5);
+    PImage tp=loadImage("iCarrot.png");
+    image(tp,x+20,y+100,120,55);
     fill(50);
     textSize(16);
     if(lotSize()>4){
@@ -147,40 +143,18 @@ public class Map{
     }else{text("300 GOLD",x+30,y+180);}
     
     //draw corn button
-    fill(50);
-    stroke(50);
-    rect(x+20,y+210+90,120,35,5);
-    fill(50);
-    fill(249,225,118);
-    stroke(249,225,118);
-    rect(x+25,y+310,70,15,20);
-    fill(246,201,21);
-    stroke(246,201,21);
-    rect(x+30,y+305,50,25,20);
-    stroke(249,229,188);
-    ellipse(x+120,y+320,10,5);ellipse(x+127,y+325,10,5);
-    ellipse(x+110,y+325,10,5);ellipse(x+115,y+315,10,5);
-    ellipse(x+130,y+320,10,5);ellipse(x+130,y+315,10,5);
+   rect(x+20,y+280,120,55,5);
+    PImage cr=loadImage("iCorn.png");
+    image(cr,x+20,y+280,120,55);
     fill(50);
     if(lotSize()>4){
       text("1250 GOLD",x+30,y+270+90);
     }else{text("1000 GOLD",x+30,y+270+90);}
     
     //draw cabbage button
-    fill(50);
-    stroke(50);
-    rect(x+20,y+210,120,35,5);
-    color c=color(75,173,33);
-    fill(c);
-    stroke(30);
-    ellipse(x+60,y+230,35,30);
-    fill(c+30);stroke(70);
-    ellipse(x+60,y+230,15,15);
-    fill(c+60);stroke(50);
-    ellipse(x+60,y+230,10,10);
-    fill(c);
-    stroke(30);
-    arc(x+100,y+220,30,30,0,PI,OPEN);
+    rect(x+20,y+190,120,55,5);
+    PImage cb=loadImage("iCabbage.png");
+    image(cb,x+20,y+190,120,55);
     fill(50);
     if(lotSize()>4){
       text("650 GOLD",x+30,y+270);
@@ -234,13 +208,13 @@ public class Map{
     return (mouseX>400&&mouseX<440&&mouseY>400&&mouseY<420);
   }
   boolean clickCa(){
-    return (mouseX>100&&mouseX<220&&mouseY>190&&mouseY<225);
+    return (mouseX>100&&mouseX<220&&mouseY>170&&mouseY<225);
   }
   boolean clickCb(){
-    return (mouseX>100&&mouseX<220&&mouseY>280&&mouseY<315);
+    return (mouseX>100&&mouseX<220&&mouseY>260&&mouseY<315);
   }
   boolean clickCo(){
-    return (mouseX>100&&mouseX<220&&mouseY>370&&mouseY<405);
+    return (mouseX>100&&mouseX<220&&mouseY>350&&mouseY<405);
   }
   boolean clickFl(){
     return (mouseX>100&&mouseY>100&&mouseX<230&&mouseY<140);
