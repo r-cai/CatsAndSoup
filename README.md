@@ -44,4 +44,16 @@ added corn type station, scaled currency.
 6/6
 added map expansions, with buy screen. arrow keys to scroll betweeen maps.
 
+6/7
+added decorations class, variables, etc. but still buggy and does not add to the map properly
+
+6/8
+decorations class added properly, but the hover function is not working. (the decoration should hover as the mouse moves to place, and only places down when clicked)
+
+6/9 
+added decoration pngs, and the hover function is now working. 
+
+6/10
+added pngs to all elements (station,cat,map etc.) instead of processing generated shapes.
+
 https://docs.google.com/document/d/1mKbR-0yig-3LIn1d80ZSnuD0NG98yGH9_4tj0BnBg28/edit?usp=sharing
