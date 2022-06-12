@@ -1,4 +1,9 @@
 # CatsAndSoup
+
+RUN INSTRUCTIONS
+Run from processing. It should just display the sketch which is the project.
+
+DEVLOG
 5/18
 repo created.
 
@@ -56,4 +61,7 @@ added decoration pngs, and the hover function is now working.
 6/10
 added pngs to all elements (station,cat,map etc.) instead of processing generated shapes.
 
+updated prototype
+https://docs.google.com/document/d/1SzwEl0_Gyu6h1wVYIigz6gWb2DuZfu-mph0eyxwM1vU/edit?usp=sharing
+old prototype
 https://docs.google.com/document/d/1mKbR-0yig-3LIn1d80ZSnuD0NG98yGH9_4tj0BnBg28/edit?usp=sharing
